@@ -1,0 +1,87 @@
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+ 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+ 
+class Myframe extends JFrame implements ActionListener
+{
+    //create references for GUI components
+    String msg;
+    public JLabel userNamelbl;
+    public JTextField userNametxt;
+    JLabel passWordlbl;
+    JPasswordField passWordtxt;
+    JButton resetButton,saveButton;
+    //define no-arg constructor
+    Myframe()
+    {
+        //set Frame environment as JFrame is a container
+        setTitle("Login");
+        //set the boundaries for frame
+        setBounds(0,0,500,600);
+        //set any Layout to place GUI compoenents
+        setLayout(new FlowLayout());
+       
+    //prompt the user name
+     userNamelbl=new JLabel("Enter Movie Name");
+     //show input field to accept user name data
+     userNametxt=new JTextField(20);
+   
+     //prompt the password
+     passWordlbl=new JLabel("Enter Password");
+     //show password field to get input of 10 characters max
+     passWordtxt=new JPasswordField(10);
+   
+     //create reset button
+    resetButton=new JButton("Reset");
+    //create save button
+    saveButton=new JButton("Save");
+   
+    //add components to frame container
+    add(userNamelbl);
+    add(userNametxt);
+    add(passWordlbl);
+    add(passWordtxt);
+    add(resetButton);
+    add(saveButton);
+   
+    //register event-source with the listener
+    resetButton.addActionListener(this);
+    saveButton.addActionListener(this);
+   
+    //default value is false for a frame - it has to visible on screen so, set it true
+    setVisible(true);
+   
+    }
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+   
+            if(ae.getActionCommand().equals("Reset"))
+            {
+                userNametxt.setText("");
+                passWordtxt.setText("");
+               
+            }else if( ae.getActionCommand().equals("Save"))
+            {
+                msg="Save Clicked";
+                saveButton.setText(msg);
+            }
+    }
+}
+public class LoginGui {
+   
+   
+ 
+    public static void main(String[] args) {
+        // create Login Frame
+        Myframe mf=new Myframe();
+       
+ 
+    }
+ 
+}
