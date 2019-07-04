@@ -33,9 +33,8 @@ class Myframe extends JFrame implements ActionListener
      userNametxt=new JTextField(20);
    
      //prompt the password
-     passWordlbl=new JLabel("Enter Password");
      //show password field to get input of 10 characters max
-     passWordtxt=new JPasswordField(10);
+     //passWordtxt=new JPasswordField(10);
    
      //create reset button
     resetButton=new JButton("Reset");
